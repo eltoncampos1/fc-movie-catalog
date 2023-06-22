@@ -1,7 +1,6 @@
-import { InvalidUUIDError } from './../../errors/invalid-uuid.error'
+import { InvalidUUIDError } from './../../../errors/invalid-uuid.error'
 import { validate as validateUUID } from 'uuid'
-
-import { UniqueEntityId } from './unique-entity-id.vo'
+import { UniqueEntityId } from '../unique-entity-id.vo'
 
 function spyValidateMethod() {
     return jest.spyOn(UniqueEntityId.prototype as any, 'validate')
@@ -22,7 +21,7 @@ describe('UniqueEntityId unit Tests', () => {
 
         const validateSpy = spyValidateMethod()
 
-        expect(vo.id).toBe(uuid)
+        expect(vo.value).toBe(uuid)
         expect(validateSpy).toHaveBeenCalled()
     })
 
@@ -31,7 +30,7 @@ describe('UniqueEntityId unit Tests', () => {
 
         const validateSpy = spyValidateMethod()
 
-        expect(validateUUID(vo.id)).toBeTruthy()
+        expect(validateUUID(vo.value)).toBeTruthy()
         expect(validateSpy).toHaveBeenCalled()
     })
 })
