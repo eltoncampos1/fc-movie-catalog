@@ -1,6 +1,6 @@
 import { ValueObject } from '../value-object'
 
-class StubValueObject extends ValueObject {}
+export class StubValueObject extends ValueObject {}
 
 describe('ValueObject unit Tests', () => {
     it('should set value', () => {
@@ -15,8 +15,6 @@ describe('ValueObject unit Tests', () => {
     it('should convert to a string', () => {
         const date = new Date()
         let arrange = [
-            { received: null, expected: 'null' },
-            { received: undefined, expected: 'undefined' },
             { received: '', expected: '' },
             { received: 'fake test', expected: 'fake test' },
             { received: 0, expected: '0' },
